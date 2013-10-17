@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/cweidenkeller/openstack-formula/openstack/keystone/files'
+let g:netrw_dirhist_2='/home/cweidenkeller/trove-integration/scripts/files/elements'
+let g:netrw_dirhist_3='/home/cweidenkeller/trove-integration/scripts/files'
+let g:netrw_dirhist_4='/home/cweidenkeller/trove-integration/scripts/files/elements'
