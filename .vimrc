@@ -9,3 +9,4 @@ Bundle 'tpope/vim-git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'klen/python-mode'
+map :nt :NERDTree
