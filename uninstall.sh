@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-rm ~/.vimrc
-rm ~/.gitconfig
-rm ~/.vim
+rm -rf ~/.vimrc
+rm -rf ~/.gitconfig
+rm -rf ~/.vim
