@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 DIR=`pwd`
-ln -s $DIR/.vimrc ~/
-ln -s $DIR/.gitconfig ~/
-ln -s $DIR/.vim ~/
+rm -rf ~/.vimrc
+rm -rf ~/.gitconfig
+rm -rf ~/.vim
+cp -r $DIR/.vimrc ~/
+cp -r $DIR/.gitconfig ~/
+cp -r $DIR/.vim ~/
