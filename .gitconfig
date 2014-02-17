@@ -1,6 +1,6 @@
 [user]
-	name = Conrad Weidenkeller
-	email = conrad@weidenkeller.com
+	name = "Conrad Weidenkeller"
+	email = "conrad@weidenkeller.com"
 [core]
 	editor = vim
 [web]
