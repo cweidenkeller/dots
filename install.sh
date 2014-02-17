@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 DIR=`pwd`
+cd $DIR
+git submodule init
+git submodule update
 rm -rf ~/.vimrc
 rm -rf ~/.gitconfig
 rm -rf ~/.vim
