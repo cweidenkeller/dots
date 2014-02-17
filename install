@@ -9,3 +9,5 @@ rm -rf ~/.vim
 cp -r $DIR/.vimrc ~/
 cp -r $DIR/.gitconfig ~/
 cp -r $DIR/.vim ~/
+sleep 1
+vim +BundleInstall +qall
