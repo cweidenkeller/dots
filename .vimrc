@@ -16,14 +16,17 @@ set expandtab "Because python.
 set nobackup "No backupfile.
 set nowritebackup "No write backup.
 set noswapfile "No .swp no more.
+set laststatus=2 "Set Line status 2.
+set wildignore+=*.pyc "Ignore dem pyc's
 syntax on
+let g:ctrlp_max_height = 30
 let mapleader = "," "More Keybinds.
 "Quit this window.
 noremap <Leader>e :quit<CR>
 "Quit this vim session.
 noremap <Leader>E :qa!<CR>
 "Less Typing more NERDTree!
-noremap <Leader>n :NERDTree<CR>
+noremap <Leader>o :NERDTree<CR>
 "Tab Window movement.
 map <Leader>n :tabnext<CR>
 map <Leader>m :tabprevious<CR>
@@ -32,6 +35,16 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+"Python-mode options.
+map <Leader>g :call RopeGotoDefinition()<CR>
+let ropevim_enable_shortcuts = 1
+let g:pymode_rope_goto_def_newwin = "vnew"
+let g:pymode_rope_extend_complete = 1
+let g:pymode_breakpoint = 0
+let g:pymode_syntax = 1
+let g:pymode_syntax_builtin_objs = 0
+let g:pymode_syntax_builtin_funcs = 0
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 "Fast sort.
 vnoremap <Leader>s :sort<CR>
 "Quick indent and keep selection.
