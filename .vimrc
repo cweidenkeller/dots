@@ -1,7 +1,7 @@
 autocmd! bufwritepost .vimrc source % "Auto reload vimrc
 "Highlight trailing whitespace with red
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
+"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"au InsertLeave * match ExtraWhitespace /\s\+$/
 "End Highlight trailing whitespace with red
 set nocompatible "Disable vicompat mode
 set rtp+=~/.vim/bundle/vundle/ "Src vundle
