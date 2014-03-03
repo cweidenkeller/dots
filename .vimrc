@@ -44,7 +44,12 @@ let g:airline_right_sep= "\u2188"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+let g:airline_symbols.whitespace = "\u039E"
 let g:airline_symbols.branch = "\u2387"
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = '~'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 "Python-mode options.
 map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
