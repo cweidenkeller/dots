@@ -53,7 +53,6 @@ vnoremap > >gv
 filetype plugin indent on "No Idea
 filetype off "No Idea
 call vundle#rc() "Call vundle to bootstrap it.
-call vam#ActivateAddons(['powerline'])
 """"""""""""
 "VimPlugins"
 """"""""""""
@@ -69,7 +68,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 "Python-mode git repo.
 Bundle 'klen/python-mode'
-"Vim powerline git repo.
-Bundle 'Lokaltog/powerline'
+"Vim air-line git repo.
+Bundle 'bling/vim-airline'
 "ctrlp git repo.
 Bundle 'kien/ctrlp.vim'
