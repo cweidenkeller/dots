@@ -18,9 +18,12 @@ set nowritebackup "No write backup.
 set noswapfile "No .swp no more.
 set laststatus=2 "Set Line status 2.
 set wildignore+=*.pyc "Ignore dem pyc's
+set t_Co=256 "256 Colors yo
 syntax on
 let g:ctrlp_max_height = 30
 let mapleader = "," "More Keybinds.
+"Airline options
+let g:airline_theme = 'airlineish'
 "Quit this window.
 noremap <Leader>e :quit<CR>
 "Quit this vim session.
