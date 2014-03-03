@@ -53,6 +53,7 @@ vnoremap > >gv
 filetype plugin indent on "No Idea
 filetype off "No Idea
 call vundle#rc() "Call vundle to bootstrap it.
+call vam#ActivateAddons(['powerline'])
 """"""""""""
 "VimPlugins"
 """"""""""""
