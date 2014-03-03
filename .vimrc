@@ -39,6 +39,12 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 "Vim-Airline options
 let g:airline_theme= "laederon"
+let g:airline_left_sep= "\u2188"
+let g:airline_right_sep= "\u2188"
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = "\u2387"
 "Python-mode options.
 map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
