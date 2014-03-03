@@ -23,7 +23,6 @@ syntax on
 let g:ctrlp_max_height = 30
 let mapleader = "," "More Keybinds.
 "Airline options
-let g:airline_theme = 'airlineish'
 "Quit this window.
 noremap <Leader>e :quit<CR>
 "Quit this vim session.
@@ -38,6 +37,8 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+"Vim-Airline options
+let g:airline_theme= "laederon"
 "Python-mode options.
 map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
