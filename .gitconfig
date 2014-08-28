@@ -3,5 +3,6 @@
 	email = "conrad@weidenkeller.com"
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
 [web]
 	browser = firefox
