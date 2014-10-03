@@ -6,8 +6,10 @@ git submodule update
 rm -rf ~/.vimrc
 rm -rf ~/.gitconfig
 rm -rf ~/.vim
+rm -rf ~/.gitignore
 cp -r $DIR/.vimrc ~/
 cp -r $DIR/.gitconfig ~/
 cp -r $DIR/.vim ~/
+cp -r $DIR/.gitignore ~/
 sleep 1
 vim +BundleInstall +qall
