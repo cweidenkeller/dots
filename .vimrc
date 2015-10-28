@@ -72,7 +72,7 @@ call vundle#rc() "Call vundle to bootstrap it.
 "VimPlugins"
 """"""""""""
 "Vundle git repo
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 "Fugitive git repo
 Bundle 'tpope/vim-fugitive'
 "Vim git git repo.
