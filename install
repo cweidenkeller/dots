@@ -12,4 +12,4 @@ cp -r $DIR/.gitconfig ~/
 cp -r $DIR/.vim ~/
 cp -r $DIR/.gitignore ~/
 sleep 1
-vim +BundleInstall +qall
+vim +PluginInstall +qall
