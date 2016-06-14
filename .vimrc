@@ -1,27 +1,31 @@
 autocmd! bufwritepost .vimrc source % "Auto reload vimrc
-"Highlight trailing whitespace with red
-"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"au InsertLeave * match ExtraWhitespace /\s\+$/
-"End Highlight trailing whitespace with red
 set nocompatible "Disable vicompat mode
 set rtp+=~/.vim/bundle/vundle/ "Src vundle
 set clipboard=unnamed "Make clipboard act normal.
 set history=1000 "More history.
 set undolevels=1000 "More undos.
-set tabstop=4 "Because python.
-set softtabstop=4 "Because python.
-set shiftwidth=4 "Because python.
-set shiftround "Because python.
-set expandtab "Because python.
+set encoding=utf-8
+filetype plugin indent on "No Idea
+syntax on
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 set nobackup "No backupfile.
 set nowritebackup "No write backup.
 set noswapfile "No .swp no more.
 set laststatus=2 "Set Line status 2.
 set wildignore+=*.pyc "Ignore dem pyc's
 set t_Co=256 "256 Colors yo
-syntax on
 let g:ctrlp_max_height = 30
 let mapleader = "," "More Keybinds.
+"Enable folding
+set foldmethod=indent
+set foldlevel=99
+"Enable folding with the spacebar
+nnoremap <space> za
+let g:SimpylFold_docstring_preview=1
 "Airline options
 "Quit this window.
 noremap <Leader>e :quit<CR>
@@ -50,40 +54,51 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = '~'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-"Python-mode options.
-map <Leader>g :call RopeGotoDefinition()<CR>
-let ropevim_enable_shortcuts = 1
-let g:pymode_rope_goto_def_newwin = "vnew"
-let g:pymode_rope_extend_complete = 1
-let g:pymode_breakpoint = 0
-let g:pymode_syntax = 1
-let g:pymode_syntax_builtin_objs = 0
-let g:pymode_syntax_builtin_funcs = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 "Fast sort.
 vnoremap <Leader>s :sort<CR>
 "Quick indent and keep selection.
 vnoremap < <gv
 vnoremap > >gv
-filetype plugin indent on "No Idea
-filetype off "No Idea
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
 call vundle#rc() "Call vundle to bootstrap it.
 """"""""""""
 "VimPlugins"
 """"""""""""
 "Vundle git repo
-Bundle 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 "Fugitive git repo
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 "Vim git git repo.
-Bundle 'tpope/vim-git'
+Plugin 'tpope/vim-git'
 "NERDTree git repo.
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 "Syntastic git repo.
-Bundle 'scrooloose/syntastic'
-"Python-mode git repo.
-Bundle 'klen/python-mode'
+Plugin 'scrooloose/syntastic'
+"YouCompleteMe git repo.
+Plugin 'Valloric/YouCompleteMe'
 "Vim air-line git repo.
-Bundle 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+"Vim air-line-themes git repo.
+Plugin 'vim-airline/vim-airline-themes'
 "ctrlp git repo.
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
+"pep 8 git repo.
+Plugin 'nvie/vim-flake8'
+"fold my code please.
+Plugin 'tmhedberg/SimpylFold'
+"Smart python auto indent.
+Plugin 'vim-scripts/indentpython.vim'
+"Zen Burn color scheme
+Plugin 'jnurmine/Zenburn'
+colorscheme zenburn

@@ -13,3 +13,7 @@ cp -r $DIR/.vim ~/
 cp -r $DIR/.gitignore ~/
 sleep 1
 vim +PluginInstall +qall
+sleep 1
+cd ~/.vim/bundle/YouCompleteMe
+python install.py
+echo 'DONE!'
