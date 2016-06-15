@@ -25,6 +25,8 @@ Usage:
 
 ```$./install```
 
+
+
 It will go through a bunch of steps currently I only support debian based distros for the deps installs.
 
 Also Vim 3.7 > is required with python support.
