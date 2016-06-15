@@ -22,8 +22,9 @@ So this is my dots repo it has a nifty little setup script so you can install an
 I've used this same setup for a couple of years and found it to be helpful if you would like to use it make sure you change the .gitconfig file so you are not me... Unless, you want to be me.. But I doubt that.
 
 Usage:
-
-~~~~$./install~~~~
+```
+$./install
+```
 
 
 It will go through a bunch of steps currently I only support debian based distros for the deps installs.
