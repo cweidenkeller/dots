@@ -101,4 +101,3 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 "Zen Burn color scheme
 Plugin 'jnurmine/Zenburn'
-colorscheme zenburn

@@ -1,19 +1,81 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+echo "Ensuring Vim is a high enough version."
+VIMVERSION=$(vim --version | head -1 | cut -d ' ' -f 5)
+echo "$VIMVERSION < 3.7" | bc > /dev/null 2>&1
+if [ $? -ne 0 ]
+    then
+        echo "Version $VIMVERSION too low needs to be 3.7 or higher!"
+        exit 1
+fi
+echo "Vim version $VIMVERSION is high enough."
+echo "Ensuring Vim is compiled with python support."
+HAS_PYTHON2=$(vim --version | grep -c '+python')
+if [ $HAS_PYTHON2 -ne 0 ]
+    then
+        echo "Vim has python 2 support."
+    else
+        echo "Vim has no python 2 support!"
+fi
+HAS_PYTHON3=$(vim --version | grep -c '+python3')
+if [ $HAS_PYTHON3 -ne 0 ]
+    then
+        echo "Vim has python 3 support."
+    else
+        echo "Vim has no python 3 support!"
+fi
+
+if [ $HAS_PYTHON2 -ne 0 ] && [ $HAS_PYTHON3 -ne 0 ]
+    then
+        echo "Please compile vim with python2 or python3 support exiting..."
+        exit 1
+    else
+        echo "Vim is compiled with python support!"
+fi
+echo "Ensuring dependencies are installed..."
+deps=( "python-dev" "python3-dev" "cmake" "build-essential" )
+for dep in "${deps[@]}"
+do
+    :
+    echo "Checking for dependency: $dep."
+    dpkg -s $dep > /dev/null 2>&1
+    if [ $? -ne 0 ]
+        then
+            echo "Missing dependency: $dep attempting to install with sudo!"
+            sudo apt-get install $dep
+    fi
+done
+echo "Dependencies are installed!"
 DIR=`pwd`
 cd $DIR
+echo "Changing dir to $DIR."
+echo "Install and update Vundle."
 git submodule init
 git submodule update
+echo "Removing ~/.vimrc, ~/.gitconfig, ~/.vim, and ~/.gitignore so they can be updated."
 rm -rf ~/.vimrc
 rm -rf ~/.gitconfig
 rm -rf ~/.vim
 rm -rf ~/.gitignore
+echo "Updating ~/.vimrc, ~/.gitconfig, ~/.vim and ~/.gitignore."
 cp -r $DIR/.vimrc ~/
 cp -r $DIR/.gitconfig ~/
 cp -r $DIR/.vim ~/
 cp -r $DIR/.gitignore ~/
+echo "Installing vim plugins from ~/.vimrc."
 sleep 1
 vim +PluginInstall +qall
-sleep 1
+echo "Plugins installed!"
+echo "Running YouCompleteMe compile step to add python support. (This takes a while...)"
 cd ~/.vim/bundle/YouCompleteMe
-python install.py
-echo 'DONE!'
+COMPILE_OUTPUT=$(python install.py 2>&1)
+if [ $? -ne 0 ]
+    then
+        echo "YouCompleteMe compilation completed sucessfully."
+    else
+        echo "YouCompleteMe compilation failed!"
+        echo "Please see /tmp/dots_err.log for more info!"
+        echo "$COMPILE_OUTPUT" > /tmp/dots_err.log
+fi
+echo "Injecting colorscheme into ~/.vimrc"
+echo "colorscheme zenburn" >> ~/.vimrc
+echo "All done enjoy!"
