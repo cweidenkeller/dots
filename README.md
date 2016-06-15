@@ -23,8 +23,7 @@ I've used this same setup for a couple of years and found it to be helpful if yo
 
 Usage:
 
-```$./install```
-
+```$./install
 
 
 It will go through a bunch of steps currently I only support debian based distros for the deps installs.
