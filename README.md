@@ -33,4 +33,6 @@ Also Vim 3.7 > is required with python support.
 
 Right now this is mostly configured to setup a python programming env in vim and some simple stuff in your .gitconfig.
 
+Look inside the .vimrc to see what plugins I have installed.
+
 Feel free to fork it if you wish!
