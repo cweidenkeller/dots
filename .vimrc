@@ -101,3 +101,11 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 "Zen Burn color scheme
 Plugin 'jnurmine/Zenburn'
+"Surround by Tpope!
+Plugin 'tpope/vim-surround'
+"vim-dispatch by Tpope!
+Plugin 'tpope/vim-dispatch'
+"vim-rhubarb by Tpope!
+Plugin 'tpope/vim-rhubarb'
+"vim-tbone tmux support by Tpope!
+Plugin 'tpope/vim-tbone'
