@@ -7,7 +7,7 @@ set undolevels=1000 "More undos.
 set encoding=utf-8
 filetype plugin indent on "No Idea
 syntax on
-
+set relativenumber
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
