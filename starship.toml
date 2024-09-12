@@ -1,0 +1,231 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+
+format = '$package\[$sudo$username@$hostname:$directory\]$docker_context$golang $character'
+right_format = '$git_branch$git_commit$git_state$git_metrics$git_status$time$cmd_duration'
+scan_timeout = 30
+command_timeout = 500
+add_newline = true
+follow_symlinks = true
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[✗](bold red)'
+vimcmd_symbol = '[❮](bold green)'
+vimcmd_replace_symbol = '[❮](bold purple)'
+vimcmd_replace_one_symbol = '[❮](bold purple)'
+vimcmd_visual_symbol = '[❮](bold yellow)'
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = false
+format = '[$duration]($style)'
+style = 'bold yellow'
+show_notifications = false
+min_time_to_notify = 45_000
+notification_timeout = 100_000
+
+[container]
+symbol = ''
+style = 'bold blue dimmed'
+disabled = false
+format = '[$symbol\$name\]]($style)'
+
+[directory]
+truncation_length = 110
+truncate_to_repo = true
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = 'bold cyan'
+disabled = false
+read_only = ' 🔒'
+read_only_style = 'red'
+truncation_symbol = '.../'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
+home_symbol = '~'
+use_os_path_sep = true
+
+[docker_context]
+format = '[$symbol$context]($style) '
+symbol = '🐳 '
+only_with_files = true
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+style = 'blue bold'
+disabled = false
+
+[gcloud]
+format = '[$symbol$account(@$domain)\($project\)(\($region\))|$active|]($style)'
+symbol =  '️󱇶 '
+style = 'bold blue'
+disabled = false
+
+[git_branch]
+always_show_remote = true 
+format = '[$symbol\[$branch\] ($remote_name:$remote_branch)]($style)'
+symbol = ''
+style = 'bold purple'
+only_attached = false
+disabled = false
+
+[git_commit]
+commit_hash_length = 7
+format = '[\(<$hash>$tag\) ]($style)'
+style = 	'bold green'
+only_detached = false
+tag_disabled = false
+tag_max_candidates = 0
+tag_symbol = '  '
+disabled = false 
+
+[git_state]
+rebase = 'REBASE'
+merge = 'MERGE'
+revert = 'REVERT'
+cherry_pick = 'CHERRY-PICK'
+bisect = 'BISECT'
+am = 'AM'
+am_or_rebase = 'AM/RE'
+format =	'\([$state( $progress_current/$progress_total)]($style)\) '
+disabled = false
+
+[git_metrics]
+added_style = 'bold green'
+deleted_style = 'bold red'
+only_nonzero_diffs = true
+format = '([+$added]($added_style) )([$deleted]($deleted_style) )'
+disabled = false
+ignore_submodules = true
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = '='
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+up_to_date = ''
+untracked = '?'
+stashed = '$'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '✘'
+typechanged = ""
+style = 'bold red'
+ignore_submodules = true
+disabled = false
+
+[golang]
+format = '[\[$symbol($version)($mod_version)\]]($style)'
+version_format = 'v${raw}'
+symbol = ' '
+detect_extensions = ['go']
+detect_files = ['go.mod', 'go.sum', 'go.work', 'glide.yaml', 'Gopkg.yml', 'Gopkg.lock', '.go-version']
+detect_folders = ['Godeps']
+style = 'bold cyan'
+not_capable_style = 'bold red'
+disabled = false
+
+[hostname]
+ssh_only = false
+trim_at = ''
+style = 'bold dimmed green'
+format = '[$ssh_symbol$hostname]($style)'
+
+[line_break]
+disabled = false
+
+[localip]
+ssh_only = true
+format = '[$localipv4]($style) '
+style = 'bold yellow'
+disabled = false
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = ' '
+format = '$symbol[${ram}(|${swap})]($style) '
+style = 'bold dimmed green'
+
+[os]
+format = 	'[$symbol]($style)'
+style = 'bold white'
+disabled = false
+
+[os.symbols]
+AIX = "➿ "
+Alpaquita = "🔔 "
+AlmaLinux = "💠 "
+Alpine = "🏔️ "
+Amazon = "🙂 "
+Android = "🤖 "
+Arch = "🎗️ "
+Artix = "🎗️ "
+CentOS = "💠 "
+Debian = "🌀 "
+DragonFly = "🐉 "
+Emscripten = "🔗 "
+EndeavourOS = "🚀 "
+Fedora = "🎩 "
+FreeBSD = "😈 "
+Garuda = "🦅 "
+Gentoo = "🗜️ "
+HardenedBSD = "🛡️ "
+Illumos = "🐦 "
+Kali = "🐉 "
+Linux = "🐧 "
+Mabox = "📦 "
+Macos = "🍎 "
+Manjaro = "🥭 "
+Mariner = "🌊 "
+MidnightBSD = "🌘 "
+Mint = "🌿 "
+NetBSD = "🚩 "
+NixOS = "❄️ "
+OpenBSD = "🐡 "
+OpenCloudOS = "☁️ "
+openEuler = "🦉 "
+openSUSE = "🦎 "
+OracleLinux = "🦴 "
+Pop = "🍭 "
+Raspbian = "🍓 "
+Redhat = "🎩 "
+RedHatEnterprise = "🎩 "
+RockyLinux = "💠 "
+Redox = "🧪 "
+Solus = "⛵ "
+SUSE = "🦎 "
+Ubuntu = "🎯 "
+Ultramarine = "🔷 "
+Unknown = "❓ "
+Void = "  "
+Windows = "🪟 "
+
+[package]
+format = '[$symbol$version]($style) '
+symbol = '󰏖 '
+version_format = 'v${raw}'
+style = 'bold blue'
+display_private = true
+disabled = false
+
+[sudo]
+format = '[$symbol]($style)'
+style = 'bold blue'
+symbol = ' '
+disabled = false
+
+[time]
+disabled = false
+format = '[\[$time\]]($style) '
+style = 'bold yellow'
+time_format = '%T'
+use_12hr = false
+utc_time_offset = '-6'
+time_range = '-'
+
+[username]
+style_root = 'bold red'
+style_user = 	'bold yellow'
+format = '[$user]($style)'
+show_always = true
+disabled = false
