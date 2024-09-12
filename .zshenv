@@ -1,0 +1,10 @@
+export MANPATH="/usr/local/man:$MANPATH"
+export LANG=en_US.UTF-8
+. "$HOME/.cargo/env"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/node/bin
+export PATH=$HOME/go/bin:$PATH
+export PATH=$PATH:$HOME/.local/go/bin
+export PATH=$HOME/.local/bin:$PATH
+alias vim="nvim"
+alias vi="nvim"
