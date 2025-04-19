@@ -1,2 +1,1 @@
-require("cweid.core")
-require("cweid.lazy")
+require("config.lazy")

@@ -6,5 +6,7 @@ export PATH=$PATH:$HOME/node/bin
 export PATH=$HOME/go/bin:$PATH
 export PATH=$PATH:$HOME/.local/go/bin
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/zig:$PATH
+export PATH=$HOME/.local/nvim/bin:$PATH
 alias vim="nvim"
 alias vi="nvim"

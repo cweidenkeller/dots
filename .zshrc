@@ -16,8 +16,11 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::dnf
+zinit snippet OMZP::fzf
 zinit snippet OMZP::gcloud
+zinit snippet OMZP::golang
 zinit snippet OMZP::podman
+zinit snippet OMZP::minikube
 zinit snippet OMZP::ssh
 zinit snippet OMZP::systemd
 
@@ -48,11 +51,21 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-zstyle ':completion:*:*:docker:*' option-stacking yes
-zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
 
 alias ls='ls --color'
+alias goc='cd ~/go/src/github.com/cweidenkeller/'
+alias zrc='nvim ~/.zshrc'
+alias senv='source ~/.zshrc'
+alias ncfg='nvim ~/.config/nvim/lua/.'
+#eval "$(zellij setup --generate-auto-start zsh)"
 
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
+#eval "$(zoxide init --cmd cd zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/packer packer
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

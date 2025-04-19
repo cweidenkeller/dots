@@ -1,0 +1,4 @@
+window-decoration = true
+font-family = "JetBrainsMono Nerd Font" 
+shell-integration = zsh
+theme = tokyonight_night
