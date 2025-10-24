@@ -5,18 +5,18 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
+    "--branch=stable", -- latest stable release
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "cweid.plugins" }, { import = "cweid.plugins.lsp"} }, {
+require("lazy").setup({ { import = "cweid.plugins" }, { import = "cweid.plugins.lsp" } }, {
   checker = {
     enabled = true,
-    notify = false,
+    notify = true,
   },
   change_detection = {
-    notify = false,
+    notify = true,
   },
 })
